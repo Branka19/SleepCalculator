@@ -6,7 +6,7 @@ The main idea is to create an app that calcuates the time slept and determine wh
 
 <strong>Improvement Ideas</strong>
 
-<u>Here are some of the points which I am planning to add / update in the future:</u>
+<em>Here are some of the points which I am planning to add / update in the future:</em>
 
 <ul>
 <li>Since the app only accepts integers, I want to enable adding minutes for amount of sleep, e.g. 8.5h of sleep.</li>
