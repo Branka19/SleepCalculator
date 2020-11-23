@@ -22,30 +22,30 @@ public class NeededSleep {
     //when I want to go to bed:
     public LocalTime getWentToBed()
     {
+       System.out.println("");
         System.out.println("I will go to bed at (hh:mm):");
-        System.out.println("");
         LocalTime wentToBed = LocalTime.parse(scanner.nextLine());
         //System.out.println(wentToBed);
         return wentToBed;
     }
 
     //how many hours of sleep I want:
-    public int getHoursToSleep()
+    public String[] getHoursToSleep()
     {
-        System.out.println("Hours I want to sleep (hh):");
-        System.out.println("");
-        int hoursToSleep = scanner.nextInt();
-        return hoursToSleep;
+      System.out.println("");
+        System.out.println("Hours I want to sleep (hh:00):");
+        String hoursToSleep = scanner.nextLine();
+        String[] nums = hoursToSleep.split("\\.");
+        //System.out.println(nums[0] + " + " + nums[1]);
+        return nums;
     }
 
     //calculate when to wake up:
-    public LocalTime whenToWakeUp(LocalTime wentToBed, int hoursOfSleep)
+    public LocalTime whenToWakeUp(LocalTime wentToBed, String[] hoursOfSleep)
     {
-        LocalTime wakeUpTime = wentToBed.plus(hoursOfSleep, ChronoUnit.HOURS);
-        System.out.println("I need to wake up at: " + wakeUpTime);
         System.out.println("");
+        LocalTime wakeUpTime = wentToBed.plusHours(new Long(hoursOfSleep[0])).plusMinutes(new Long(hoursOfSleep[1]));
+        System.out.println("I need to wake up at: " + wakeUpTime);
         return wakeUpTime;
     }
-
-
 }
