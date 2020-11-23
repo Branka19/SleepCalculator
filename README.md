@@ -15,4 +15,6 @@ The main idea is to create an app that calcuates the time slept and determine wh
 <li>There should be 2 interfaces in the future for the two classes with diffent calculations (hours slept + when to wake up).</li>
 <li>Wrong input should be handled in a try...catch block.</li>
 <li>Whitespaces beetwen inputs should be made prettier.</li>
+<li>Add conversion if writing was false case: SerbiA</li>
+<li>hoursSlept() method:calculate time slept with minutes</li>
 </ul>
