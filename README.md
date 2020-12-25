@@ -1,10 +1,10 @@
 # SleepCalculator
 
-##Goal
+## Goal
 
 The main idea is to create an app that calcuates the time slept and determine when to wake up in order to have a good night's sleep.
 
-####Improvement Ideas
+#### Improvement Ideas
 
 ***Here are some points which I am planning to add / update in the future:***
 
