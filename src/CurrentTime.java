@@ -2,7 +2,6 @@ import java.time.LocalTime;
 import java.util.Scanner;
 import java.util.*;
 import java.time.*;
-import java.text.*;
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
 
@@ -14,7 +13,7 @@ public class CurrentTime
         System.out.println("Choose your country (SERBIA, GERMANY, NETHERLANDS):");
 
         Scanner scanner = new Scanner(System.in);
-        Country country = Country.valueOf(scanner.next());
+        Country country = Country.valueOf(scanner.next().toUpperCase());
 
         LocalTime localTime = null;
         DateTimeFormatter pattern;
@@ -50,8 +49,8 @@ public class CurrentTime
                 break;
         }
 
-
-        System.out.println("Current time in " + country + " is: " + s);
+        System.out.println("Current time in " + country + " is:\n" + s);
+        System.out.println();
         return localTime;
     }
 }

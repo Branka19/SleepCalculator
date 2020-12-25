@@ -1,20 +1,14 @@
-//Here I want to calculate how many hours I slept based on when I went to bed and when I woke up:
-//Went to bed at 23:00h.
-//Woke up at: 07:00h.
-//You slept: 8 hours.
-
 //Ideas:
-//how to insert time to calculate the next day?
 //how to insert a specific time format?
 //how to add a time format?
 //maybe also add the functionality to say if it was enough.
 
 //how to make multiple windows? or tabs for 2 app aspects?
 //handle wrong input
-//handles white space between inputs:
+//handle white space between inputs:
 
+import java.time.Duration;
 import java.time.LocalTime;
-import java.time.temporal.ChronoUnit;
 import java.util.Scanner;
 
 public class HoursSlept {
@@ -31,17 +25,28 @@ public class HoursSlept {
 
     public LocalTime wokeUp()
     {
-        System.out.println("I woke up at:");
+        System.out.println("I woke up at (hh:mm):");
         LocalTime wakeUp = LocalTime.parse(scanner.nextLine());
         //System.out.println(wakeUp);
         return wakeUp;
     }
 
-    public long hoursSlept(LocalTime wentToBed, LocalTime wokeUp)
+    //accept minutes as well:
+    public void hoursSlept(LocalTime wentToBed, LocalTime wokeUp)
     {
-        long difference = wentToBed.until(wokeUp, ChronoUnit.HOURS) + 24;
-        System.out.println("I slept for: " + difference + " hours.");
-        return difference;
+        Duration duration = Duration.between(wentToBed, wokeUp);
+        //long hours = duration.toHours();
+        //if(hours < 0) hours += 24;
+        long minutes = duration.toMinutes();
+        if(minutes < 0) minutes += 1440;
+
+        long hours = minutes / 60;
+        long min = minutes - hours * 60;
+        if(min == 0)
+            System.out.println("I slept for " + minutes / 60 + " hours.");
+        else
+        System.out.println("I slept for " + minutes / 60 + " hours " + min + " minutes.");
+        System.out.println("");
     }
 
 }

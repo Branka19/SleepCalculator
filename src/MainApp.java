@@ -1,7 +1,5 @@
 import java.time.LocalTime;
-import java.time.ZoneId;
-import java.time.temporal.ChronoUnit;
-import java.util.Scanner;
+
 
 public class MainApp {
 
@@ -9,16 +7,18 @@ public class MainApp {
 
         //choosing a local time:
         CurrentTime time = new CurrentTime();
-        LocalTime currentTime = time.getCurrentTime(); //SERBIA: 14:52
+        time.getCurrentTime(); //SERBIA: 14:52
 
+        //Calculating hours slept:
         HoursSlept hoursSlept = new HoursSlept();
         LocalTime waky = hoursSlept.wentToBed();
         LocalTime asleep = hoursSlept.wokeUp();
         hoursSlept.hoursSlept(waky, asleep);
 
+        //Calculating needed sleep:
         NeededSleep neededSleep = new NeededSleep();
         LocalTime bedTime = neededSleep.getWentToBed();
-        int sleep = neededSleep.getHoursToSleep();
+        String[] sleep = neededSleep.getHoursToSleep();
         neededSleep.whenToWakeUp(bedTime, sleep);
     }
 
